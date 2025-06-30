@@ -1,0 +1,85 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: 'Roboto Slab', serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+canvas#c {
+    z-index: 0; /* nền */
+    background: black;
+}
+
+#canvasText {
+    z-index: 1;
+    pointer-events: none;
+}
+
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6vw;
+    color: white;
+    z-index: 10;
+    user-select: none;
+    text-align: center;
+}
+
+#startBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+    padding-top: 5px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    background: white;
+    border: none;
+    border-radius: 8px;
+}
+
+#rotateNotice {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0);
+    color: white;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 5vw;
+}
+
+#rotateNotice svg {
+    width: 20vw;
+    height: 20vw;
+    margin-bottom: 5vh;
+}
+
+@media (max-width: 768px) {
+    #countdown {
+    font-size: 10vw;
+    }
+    #startBtn {
+    font-size: 3.5vw;
+    padding: 8px 16px;
+    }
+}
