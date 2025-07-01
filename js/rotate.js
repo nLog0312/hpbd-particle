@@ -17,12 +17,8 @@ function checkOrientation() {
         canvasFireworks.style.display = 'block';
 
         if (isMobile) {
-            // Trên điện thoại xoay ngang => chỉ hiện nút fullscreen
-            startBtn.style.display = 'none';
             fullscreenBtn.style.display = 'block';
         } else {
-            // Trên PC hoặc máy tính bảng => dùng nút bắt đầu
-            startBtn.style.display = 'block';
             fullscreenBtn.style.display = 'none';
         }
     }
@@ -45,12 +41,15 @@ window.addEventListener('load', () => {
     resizeCanvasText();
 });
 
+function isSafariIOS() {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iP(ad|hone|od)/.test(navigator.userAgent);
+}
+
 function fullscreenChange() {
     const fullscreenBtn = document.getElementById("fullscreenBtn");
     const isFull = document.fullscreenElement;
-    if (!isFull && isMobile && isPortrait) {
-    // Nếu không còn fullscreen và đang ở màn hình điện thoại nằm ngang
-    fullscreenBtn.style.display = "block";
+    if (!isFull && isMobile && isPortrait && !isSafariIOS()) {
+        fullscreenBtn.style.display = "block";
     }
 }
 
@@ -60,14 +59,16 @@ document.addEventListener("msfullscreenchange", fullscreenChange);
 document.addEventListener("fullscreenchange", fullscreenChange);
 
 document.getElementById("fullscreenBtn").onclick = () => {
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
     const el = document.documentElement;
     if (el.requestFullscreen) {
-    el.requestFullscreen();
+        el.requestFullscreen();
     } else if (el.webkitRequestFullscreen) {
-    el.webkitRequestFullscreen();
+        el.webkitRequestFullscreen();
     } else if (el.msRequestFullscreen) {
-    el.msRequestFullscreen();
+        el.msRequestFullscreen();
     }
 
-    document.getElementById("fullscreenBtn").style.display = "none";
+    fullscreenBtn.style.display = "none";
 };
