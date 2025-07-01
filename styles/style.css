@@ -82,4 +82,22 @@ canvas#c {
     font-size: 3.5vw;
     padding: 8px 16px;
     }
+    #fullscreenBtn {
+        font-size: 4vw;
+        padding: 6px 10px;
+    }
+}
+
+#fullscreenBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+    padding: 6px 10px;
+    font-size: 1.5vw;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
 }
