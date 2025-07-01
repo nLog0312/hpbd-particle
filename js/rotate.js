@@ -42,8 +42,10 @@ window.addEventListener('load', () => {
 });
 
 function isSafariIOS() {
-    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iP(ad|hone|od)/.test(navigator.userAgent);
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    return (/iPad|iPhone|iPod/.test(ua) || (navigator.maxTouchPoints > 2 && /Macintosh/.test(ua))) && /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
 }
+
 
 function fullscreenChange() {
     const fullscreenBtn = document.getElementById("fullscreenBtn");
