@@ -17,9 +17,11 @@ function checkOrientation() {
         canvasFireworks.style.display = 'block';
 
         if (isMobile) {
-            fullscreenBtn.style.display = 'block';
-        } else {
-            fullscreenBtn.style.display = 'none';
+            if (isSafariIOS()) {
+                fullscreenBtn.style.display = 'none';
+            } else {
+                fullscreenBtn.style.display = 'block';
+            }
         }
     }
     // cập nhật kích thước canvas text theo orientation mới
@@ -42,8 +44,8 @@ window.addEventListener('load', () => {
 });
 
 function isSafariIOS() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    return (/iPad|iPhone|iPod/.test(ua) || (navigator.maxTouchPoints > 2 && /Macintosh/.test(ua))) && /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
+    const ua = navigator.userAgent;
+    return /iP(hone|od|ad)/.test(ua) && /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS/.test(ua);
 }
 
 
