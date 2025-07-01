@@ -1,1 +1,73 @@
-const _0xaf20=_0x270d;(function(_0x5e14d6,_0x492bc5){const _0x424f57=_0x270d,_0x3701ea=_0x5e14d6();while(!![]){try{const _0x3a4bef=-parseInt(_0x424f57(0x93))/0x1*(-parseInt(_0x424f57(0x83))/0x2)+-parseInt(_0x424f57(0x85))/0x3*(parseInt(_0x424f57(0x91))/0x4)+parseInt(_0x424f57(0x8c))/0x5*(parseInt(_0x424f57(0x7c))/0x6)+parseInt(_0x424f57(0x8d))/0x7+parseInt(_0x424f57(0x82))/0x8+-parseInt(_0x424f57(0x80))/0x9+-parseInt(_0x424f57(0x87))/0xa;if(_0x3a4bef===_0x492bc5)break;else _0x3701ea['push'](_0x3701ea['shift']());}catch(_0x1648a2){_0x3701ea['push'](_0x3701ea['shift']());}}}(_0x31f3,0x61758));function _0x270d(_0x713a20,_0x1a3507){const _0x31f3f3=_0x31f3();return _0x270d=function(_0x270d00,_0xeeaad5){_0x270d00=_0x270d00-0x7c;let _0x55a70c=_0x31f3f3[_0x270d00];return _0x55a70c;},_0x270d(_0x713a20,_0x1a3507);}function checkOrientation(){const _0x5a6b80=_0x270d,_0x2464ab=document['getElementById'](_0x5a6b80(0x89)),_0x5ebe8b=document[_0x5a6b80(0x90)]('canvasText'),_0x2a0cdd=document[_0x5a6b80(0x90)]('c');window[_0x5a6b80(0x7d)]>window[_0x5a6b80(0x7e)]?(_0x2464ab[_0x5a6b80(0x92)][_0x5a6b80(0x94)]=_0x5a6b80(0x8f),_0x5ebe8b[_0x5a6b80(0x92)][_0x5a6b80(0x94)]=_0x5a6b80(0x81),_0x2a0cdd['style'][_0x5a6b80(0x94)]=_0x5a6b80(0x81)):(_0x2464ab[_0x5a6b80(0x92)][_0x5a6b80(0x94)]=_0x5a6b80(0x81),_0x5ebe8b[_0x5a6b80(0x92)][_0x5a6b80(0x94)]=_0x5a6b80(0x8b),_0x2a0cdd[_0x5a6b80(0x92)][_0x5a6b80(0x94)]=_0x5a6b80(0x8b)),resizeCanvasText();}function resizeCanvasText(){const _0x19d67c=_0x270d,_0x5a52ee=document[_0x19d67c(0x90)](_0x19d67c(0x8e));_0x5a52ee[_0x19d67c(0x86)]=window[_0x19d67c(0x7e)],_0x5a52ee[_0x19d67c(0x8a)]=window[_0x19d67c(0x7d)];const _0x4f3085=document[_0x19d67c(0x90)]('c');_0x4f3085[_0x19d67c(0x86)]=window[_0x19d67c(0x7e)],_0x4f3085[_0x19d67c(0x8a)]=window[_0x19d67c(0x7d)];}function _0x31f3(){const _0x4c79c7=['block','180GXMPrd','5578475RaXDIl','canvasText','flex','getElementById','11336oJfuKh','style','9808MvKTKI','display','92478JzQXwM','innerHeight','innerWidth','load','6393420Gcypbh','none','5289224wvEHdZ','158pMopIU','resize','165TmabzE','width','15223360AZAwPw','addEventListener','rotateNotice','height'];_0x31f3=function(){return _0x4c79c7;};return _0x31f3();}window[_0xaf20(0x88)](_0xaf20(0x84),checkOrientation),window['addEventListener'](_0xaf20(0x7f),()=>{checkOrientation(),resizeCanvasText();});
+function checkOrientation() {
+    const notice = document.getElementById('rotateNotice');
+    const canvasText = document.getElementById('canvasText');
+    const canvasFireworks = document.getElementById('c');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const isMobile = window.innerWidth < 1000;
+    
+    if (isPortrait) {
+        notice.style.display = 'flex';
+        canvasText.style.display = 'none';
+        canvasFireworks.style.display = 'none';
+    } else {
+        notice.style.display = 'none';
+        canvasText.style.display = 'block';
+        canvasFireworks.style.display = 'block';
+
+        if (isMobile) {
+            // Trên điện thoại xoay ngang => chỉ hiện nút fullscreen
+            startBtn.style.display = 'none';
+            fullscreenBtn.style.display = 'block';
+        } else {
+            // Trên PC hoặc máy tính bảng => dùng nút bắt đầu
+            startBtn.style.display = 'block';
+            fullscreenBtn.style.display = 'none';
+        }
+    }
+    // cập nhật kích thước canvas text theo orientation mới
+    resizeCanvasText();
+}
+
+function resizeCanvasText() {
+    const canvasText = document.getElementById('canvasText');
+    canvasText.width = window.innerWidth;
+    canvasText.height = window.innerHeight;
+    const canvasFireworks = document.getElementById('c');
+    canvasFireworks.width = window.innerWidth;
+    canvasFireworks.height = window.innerHeight;
+}
+
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('load', () => {
+    checkOrientation();
+    resizeCanvasText();
+});
+
+function fullscreenChange() {
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    const isFull = document.fullscreenElement;
+    if (!isFull && isMobile && isPortrait) {
+    // Nếu không còn fullscreen và đang ở màn hình điện thoại nằm ngang
+    fullscreenBtn.style.display = "block";
+    }
+}
+
+document.addEventListener("webkitfullscreenchange", fullscreenChange);
+document.addEventListener("mozfullscreenchange", fullscreenChange);
+document.addEventListener("msfullscreenchange", fullscreenChange);
+document.addEventListener("fullscreenchange", fullscreenChange);
+
+document.getElementById("fullscreenBtn").onclick = () => {
+    const el = document.documentElement;
+    if (el.requestFullscreen) {
+    el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+    el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+    el.msRequestFullscreen();
+    }
+
+    document.getElementById("fullscreenBtn").style.display = "none";
+};
