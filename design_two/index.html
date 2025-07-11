@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chúc Mừng Sinh Nhật!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/design_two/style.css">
+</head>
+<body>
+    <canvas class="fireworks"></canvas>
+    <div class="card">
+        <h1>Chúc Mừng Sinh Nhật!</h1>
+        <div class="wish">
+            Chúc bạn một tuổi mới rực rỡ, tràn đầy niềm vui, sức khỏe và thành công.<br>
+            Hãy tận hưởng ngày đặc biệt này thật ý nghĩa nhé!
+        </div>
+        <div class="from">
+            — Người vô cùng đẹp troai =,))
+        </div>
+    </div>
+    <!-- Bóng bay động -->
+    <script src="../js/design_two/balloon.js"></script>
+    <!-- Fireworks effect -->
+    <script src="../js/design_two/fireworks.js"></script>
+
+    <!-- Nút phát nhạc nhỏ -->
+    <button class="audio-player-btn" id="playBtn" title="Phát nhạc">
+    <svg id="playIcon" viewBox="0 0 24 24" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" width="24" height="24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+    </button>
+    <audio autoplay loop id="audio" src="../design_two/happy-birthday.mp3"></audio>
+    <script src="../js/design_two/audio.js"></script>
+
+</body>
+</html>
