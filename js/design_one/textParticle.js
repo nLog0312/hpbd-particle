@@ -9,7 +9,7 @@ const countdownElem = document.getElementById('countdown');
 const startHour = 0;
 const startMinute = 0;
 
-const words = ["3", "2", "1", "03-08-2002", "Chúc mừng sinh nhật", "Linh Đỗ", "Happy 23+", "Best things will come for u!"];
+const words = ["3", "2", "1", "27-08-2002", "Chúc em sinh nhật vui vẻ =,)", "NgChi", "Happy 23+", "Best things will come for u!"];
 const holdTimes = [500, 500, 500, 2000, 3500, 3500, 2500, 2500];
 const fadeTime = 1500;
 const particleSize = 2;
