@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isSmallScreen = window.innerWidth < 900;
 
     if (isMobileUA || isSmallScreen) {
-        window.location.href = "error.html";
+        window.location.href = "/confessed/error.html";
     }
 });
 
