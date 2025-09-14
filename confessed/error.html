@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tỏ tình đấy 💖</title>
+    <link rel="shortcut icon" href="../assets/confessed/relationship.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/confessed/styleError.css" />
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="signboard-wrapper">
+            <div class="signboard">Vui lòng truy cập bằng máy tính/laptop</div>
+            <div class="string"></div>
+            <div class="pin pin1"></div>
+            <div class="pin pin2"></div>
+            <div class="pin pin3"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isMobileUA = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const isSmallScreen = window.innerWidth < 900;
+
+            if (!isMobileUA && !isSmallScreen) {
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>
