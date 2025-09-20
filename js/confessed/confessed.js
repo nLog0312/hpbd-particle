@@ -53,6 +53,10 @@ trapBtn.onclick = () => {
     }, 4000);
 };
 
+trapBtnYes.onclick = () => {
+    window.location.href = "/confessed/accept.html";
+}
+
 trapBtnYes.addEventListener('mouseover', () => {
     gifEmojiItem.src = '../assets/confessed/Gau GIF.gif'
 });
@@ -62,7 +66,7 @@ trapBtnYes.addEventListener('mouseleave', () => {
 });
 
 handImage.onmouseenter = () => {
-    gifEmojiItem.src = '../assets/confessed/Sad Oh No GIF.gif'
+    gifEmojiItem.src = '../assets/confessed/nlog.gif'
     cursorGrabbed = true;
     updateState();
     updateUI();
@@ -118,7 +122,7 @@ function updateState() {
                 extended = true;
                 updateUI();
             }
-        }, 2000);
+        }, 2500);
     } else {
         extended = false;
     }
@@ -126,7 +130,15 @@ function updateState() {
 
 function updateUI() {
     handImage.src = ASSETS[state];
-    trapBtn.textContent = gameOver ? 'Oh no!' : cursorGrabbed ? 'Đừng =,))))' : 'Không!';
+    let btnText;
+    if (gameOver) {
+        btnText = 'Oh no!';
+    } else if (cursorGrabbed) {
+        btnText = 'Đừng =,))))';
+    } else {
+        btnText = 'Không!';
+    }
+    trapBtn.textContent = btnText;
     grabber.className = `grabber grabber--${state} ${extended ? 'grabber--extended' : ''}`;
 }
 
