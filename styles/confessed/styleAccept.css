@@ -10,6 +10,8 @@ body {
     height: 100vh;
     overflow: hidden;
     pointer-events: none;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
 .carousel-item {
@@ -197,5 +199,6 @@ body {
 }
 
 .display-none {
-    display: none !important;
+    opacity: 0;
+    visibility: hidden;
 }

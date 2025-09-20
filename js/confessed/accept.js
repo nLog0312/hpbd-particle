@@ -55,7 +55,7 @@ const handleMouseMove = (e) => {
         })
     }
     if (!isDown) return
-    const x = e.clientX || (e.touches && e.touches[0].clientX) || 0
+    const x = e.clientX || e.touches?.[0]?.clientX || 0
     const mouseProgress = (x - startX) * speedDrag
     progress = progress + mouseProgress
     startX = x
@@ -64,7 +64,7 @@ const handleMouseMove = (e) => {
 
 const handleMouseDown = e => {
     isDown = true
-    startX = e.clientX || (e.touches && e.touches[0].clientX) || 0
+    startX = e.clientX || e.touches?.[0]?.clientX || 0
 }
 
 const handleMouseUp = () => {

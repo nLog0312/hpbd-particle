@@ -27,6 +27,8 @@ body:before{
     perspective: 5px;
     perspective-origin: 50% 50%;
     position: relative;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
 .wrap{
@@ -45,7 +47,7 @@ body:before{
     animation-delay: 6s;
 }
 
-.wall {
+.wall{
     width: 100%;
     height: 100%;
     position: absolute;
