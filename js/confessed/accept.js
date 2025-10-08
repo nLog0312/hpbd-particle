@@ -8,7 +8,7 @@ window.onload = () => {
     }, 3500);
 }
 
-let progress = 50
+let progress = 0
 let startX = 0
 let active = 0
 let isDown = false
@@ -71,10 +71,10 @@ const handleMouseUp = () => {
     isDown = false
 }
 
-document.addEventListener('mousewheel', handleWheel)
+document.addEventListener('wheel', handleWheel, { passive: true })
 document.addEventListener('mousedown', handleMouseDown)
 document.addEventListener('mousemove', handleMouseMove)
 document.addEventListener('mouseup', handleMouseUp)
 document.addEventListener('touchstart', handleMouseDown)
-document.addEventListener('touchmove', handleMouseMove)
+document.addEventListener('touchmove', handleMouseMove, { passive: true })
 document.addEventListener('touchend', handleMouseUp)
